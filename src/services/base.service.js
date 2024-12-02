@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify"; // library for displaying notifications error message etc
 
 export class BaseService {
   constructor() {
@@ -18,7 +18,8 @@ export class BaseService {
   }
 
   handleError(error) {
-    const errorMessage = error.response?.data?.message || error.message || 'An error occurred';
+    const errorMessage =
+      error.response?.data?.message || error.message || "An error occurred";
     toast.error(errorMessage);
     throw error;
   }
