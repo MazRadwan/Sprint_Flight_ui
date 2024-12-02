@@ -1,5 +1,5 @@
-import AirportRow from './AirportRow';
-import styles from './AirportTable.module.css';
+import AirportRow from "./AirportRow";
+import styles from "./AirportTable.module.css";
 
 function AirportTable({ airports }) {
   if (airports.length === 0) {
@@ -17,7 +17,6 @@ function AirportTable({ airports }) {
         <div>Code</div>
         <div>City</div>
         <div>Country</div>
-        <div>Gates</div>
       </div>
 
       <div className={styles.listContainer}>
