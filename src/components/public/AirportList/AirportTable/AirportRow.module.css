@@ -1,6 +1,6 @@
 .airportRow {
   display: grid;
-  grid-template-columns: 3fr 1fr 2fr 2fr 1fr;
+  grid-template-columns: 3fr 1fr 2fr 2fr;
   padding: 1rem;
   border-bottom: 1px solid #dee2e6;
   transition: background-color 0.3s;
@@ -20,13 +20,9 @@
   color: #495057;
 }
 
-.city, .country {
+.city,
+.country {
   color: #666;
-}
-
-.gates {
-  text-align: center;
-  color: #495057;
 }
 
 @media (max-width: 768px) {
