@@ -1,20 +1,19 @@
-import { useState, useEffect } from 'react';
-import { passengerApi } from '../../../services/api';
-import { toast } from 'react-toastify';
-import styles from './PassengerForm.module.css';
+import { useState, useEffect } from "react";
+import { passengerApi } from "../../../services/api";
+import { toast } from "react-toastify";
+import styles from "./PassengerForm.module.css";
 
 function PassengerForm({ passenger, onClose, onSave }) {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    country: '',
-    passportNumber: '',
-    dateOfBirth: '',
-    status: 'ACTIVE'
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    country: "",
+    passportNumber: "",
+    dateOfBirth: "",
   });
 
   useEffect(() => {
@@ -25,9 +24,9 @@ function PassengerForm({ passenger, onClose, onSave }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -36,22 +35,22 @@ function PassengerForm({ passenger, onClose, onSave }) {
     try {
       if (passenger) {
         await passengerApi.update(passenger.id, formData);
-        toast.success('Passenger updated successfully');
+        toast.success("Passenger updated successfully");
       } else {
         await passengerApi.create(formData);
-        toast.success('Passenger created successfully');
+        toast.success("Passenger created successfully");
       }
       onSave();
     } catch (error) {
-      console.error('Error saving passenger:', error);
-      toast.error('Failed to save passenger');
+      console.error("Error saving passenger:", error);
+      toast.error("Failed to save passenger");
     }
   };
 
   return (
     <div className={styles.formOverlay}>
       <div className={styles.formContainer}>
-        <h2>{passenger ? 'Edit Passenger' : 'Add New Passenger'}</h2>
+        <h2>{passenger ? "Edit Passenger" : "Add New Passenger"}</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
@@ -169,27 +168,16 @@ function PassengerForm({ passenger, onClose, onSave }) {
             </div>
           </div>
 
-          <div className={styles.formGroup}>
-            <label htmlFor="status">Status</label>
-            <select
-              id="status"
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-              required
-            >
-              <option value="ACTIVE">Active</option>
-              <option value="INACTIVE">Inactive</option>
-              <option value="PENDING">Pending</option>
-            </select>
-          </div>
-
           <div className={styles.formActions}>
-            <button type="button" onClick={onClose} className={styles.cancelButton}>
+            <button
+              type="button"
+              onClick={onClose}
+              className={styles.cancelButton}
+            >
               Cancel
             </button>
             <button type="submit" className={styles.submitButton}>
-              {passenger ? 'Update Passenger' : 'Add Passenger'}
+              {passenger ? "Update Passenger" : "Add Passenger"}
             </button>
           </div>
         </form>

@@ -15,7 +15,6 @@ function PassengerList({ passengers, onEdit, onDelete, onViewHistory }) {
             <th>Email</th>
             <th>Phone</th>
             <th>City</th>
-            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -26,15 +25,6 @@ function PassengerList({ passengers, onEdit, onDelete, onViewHistory }) {
               <td>{passenger.email}</td>
               <td>{passenger.phone}</td>
               <td>{passenger.city}</td>
-              <td>
-                <span
-                  className={
-                    styles[passenger.status?.toLowerCase() || "unknown"]
-                  }
-                >
-                  {passenger.status || "Unknown"}
-                </span>
-              </td>
               <td className={styles.actions}>
                 <button
                   onClick={() => onEdit(passenger)}

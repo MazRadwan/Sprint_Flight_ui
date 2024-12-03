@@ -65,22 +65,6 @@
   background-color: #5a6268;
 }
 
-.active {
-  color: #28a745;
-}
-
-.inactive {
-  color: #dc3545;
-}
-
-.pending {
-  color: #ffc107;
-}
-
-.unknown {
-  color: #6c757d;
-}
-
 .noData {
   text-align: center;
   padding: 2rem;
