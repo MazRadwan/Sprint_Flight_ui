@@ -1,7 +1,11 @@
-import { FaEdit, FaTrash, FaHistory, FaPlane } from 'react-icons/fa';
-import styles from './PassengerList.module.css';
+import { FaEdit, FaTrash, FaHistory, FaPlane } from "react-icons/fa";
+import styles from "./PassengerList.module.css";
 
 function PassengerList({ passengers, onEdit, onDelete, onViewHistory }) {
+  if (!passengers || passengers.length === 0) {
+    return <div className={styles.noData}>No passengers found</div>;
+  }
+
   return (
     <div className={styles.listContainer}>
       <table className={styles.table}>
@@ -23,8 +27,12 @@ function PassengerList({ passengers, onEdit, onDelete, onViewHistory }) {
               <td>{passenger.phone}</td>
               <td>{passenger.city}</td>
               <td>
-                <span className={styles[passenger.status.toLowerCase()]}>
-                  {passenger.status}
+                <span
+                  className={
+                    styles[passenger.status?.toLowerCase() || "unknown"]
+                  }
+                >
+                  {passenger.status || "Unknown"}
                 </span>
               </td>
               <td className={styles.actions}>
